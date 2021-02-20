@@ -1,0 +1,29 @@
+{
+    "name": "bdgkw2--run",
+    "version": "0.0.0",
+    "author": "Anja Khan",
+    "description": "A Covid-19 Case Range Slider",
+    "main": "covid-slider.js",
+    "module": "covid-slider.js",
+    "type": "module",
+    "private": true,
+    "dependencies": {
+        "@webcomponents/webcomponentsjs": "2.5.0",
+        "lit-element": "2.4.0"
+    },
+    "scripts": {
+        "build": "tsc",
+        "build:watch": "tsc --watch",
+        "serve": "es-dev-server --node-resolve --watch"
+    },
+    "keywords": [
+        "web-components",
+        "lit-element",
+        "typescript"
+    ],
+    "devDependencies": {
+        "es-dev-server": "^1.46.1",
+        "typescript": "^3.8.3",
+        "web-component-analyzer": "^1.0.3"
+    }
+}
