@@ -5,7 +5,6 @@ export class CovidSlider extends LitElement {
   static styles = css`
     :host {
       display: block;
-      padding: 16px;
       max-width: 800px;
     }
 
@@ -51,7 +50,7 @@ export class CovidSlider extends LitElement {
       left: 0;
       height: 5px;
       border-radius: 14px;
-      background-color: #d02128;
+      background-color: #96bb7c;
     }
     
     [slider] > div > [thumb] {
@@ -64,7 +63,7 @@ export class CovidSlider extends LitElement {
       margin-left: -11px;
       cursor: pointer;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
-      background-color: #FFF;
+      background-color: #184d47;
       border-radius: 50%;
       outline: none;
     }
@@ -95,7 +94,7 @@ export class CovidSlider extends LitElement {
       height: 28px;
       border-radius: 0px;
       border: 0 none;
-      background: red;
+      background: #beca5c;
       -webkit-appearance: none;
     }
 
@@ -109,12 +108,16 @@ export class CovidSlider extends LitElement {
       text-align: right;
       border: 1px solid #ddd;
       border-radius: 5px;
-      box-shadow: inset 0 0 5px #d6d6d6d6;
+      box-shadow: inset 0 0 5px #d6d6d6;
     }
     
     table {
       border-collapse: collapse;
       width: 100%;
+    }
+
+    th {
+      background-color: #96bb7c;
     }
 
     td, th {
@@ -125,7 +128,7 @@ export class CovidSlider extends LitElement {
     }
 
     tr:nth-child(even) {
-      background-color: #dddddd;
+      background-color: #d6efc7;
     }
   `;
 
@@ -191,9 +194,6 @@ export class CovidSlider extends LitElement {
     }
 
     return html`
-      <h1>Covid-19 Cases by Country</h1>
-      <p>Up to date information on the number of COVID-19 cases.</p>
-      
       <div class="slider-container">
         <div class="display-value" style="margin-right:10px">${this.min}</div>
         <div slider id="slider-distance">
