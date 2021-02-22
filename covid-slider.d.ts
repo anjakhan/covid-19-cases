@@ -9,6 +9,7 @@ export declare class CovidSlider extends LitElement {
     range: number;
     width: number;
     maxwidth: number;
+    minmax: any;
     connectedCallback(): void;
     fetchData(): void;
     render(): import("lit-element").TemplateResult;

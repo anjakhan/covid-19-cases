@@ -137,6 +137,7 @@ export class CovidSlider extends LitElement {
   @property({ type: Number }) range = 0;
   @property({ type: Number }) width = 0;
   @property({ type: Number }) maxwidth = 100;
+  @property({ type: Array }) minmax = [] as any;
 
   connectedCallback() {
     super.connectedCallback();
@@ -181,6 +182,7 @@ export class CovidSlider extends LitElement {
     this.minfix = min;
     this.maxfix = max;
     this.range = max-min;
+    this.minmax = minmax;
 
     if (!this.data) {
       return html`
@@ -228,14 +230,22 @@ export class CovidSlider extends LitElement {
   }
 
   _handleInputMin(e: any) {
-    this.min = Math.floor((e.target.value * (this.range) / 100))+this.minfix;
-    const width = e.target.value;
+    e.target.value = Math.min(e.target.value, this.maxwidth-1);
+    const value = e.target.value;
+    const arr = this.minmax.sort((a:number, b:number) => a - b);
+    const idx = value > 0 ? Math.floor(arr.length/100*value)-1 : 0;
+    this.min = arr[idx];
+    const width = value;
     this.width = width;
   }
 
   _handleInputMax(e: any) {
-    this.max = Math.floor((e.target.value * (this.range) / 100))+this.minfix;
-    const maxwidth = e.target.value;
+    e.target.value = Math.max(e.target.value, this.width-(-1));
+    const value = e.target.value;
+    const arr = this.minmax.sort((a:number, b:number) => a - b);
+    const idx = value > 0 ? Math.ceil(arr.length/100*value)-1 : 0;
+    this.max = arr[idx];
+    const maxwidth = value;
     this.maxwidth = maxwidth;
   }
 }
