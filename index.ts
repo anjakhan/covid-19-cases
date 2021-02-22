@@ -1,1 +1,0 @@
-import './covid-slider.ts';

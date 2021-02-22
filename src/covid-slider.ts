@@ -185,7 +185,7 @@ export class CovidSlider extends LitElement {
     this.minfix = min;
     this.maxfix = max;
     this.range = max-min;
-    this.minmax = minmax;
+    this.minmax = minmax.sort((a:number, b:number) => a - b);
 
     if (!this.data) {
       return html`
@@ -230,21 +230,17 @@ export class CovidSlider extends LitElement {
   }
 
   _handleInputMin(e: any) {
-    e.target.value = Math.min(e.target.value, this.maxwidth-1);
-    const value = e.target.value;
-    const arr = this.minmax.sort((a:number, b:number) => a - b);
-    const idx = value > 0 ? Math.floor(arr.length/100*value)-1 : 0;
-    this.min = arr[idx];
+    const value = Math.min(e.target.value, this.maxwidth-1);
+    const idx = value > 0 ? Math.floor(this.minmax.length/100*value)-1 : 0;
+    this.min = this.minmax[idx];
     const width = value;
     this.width = width;
   }
 
   _handleInputMax(e: any) {
-    e.target.value = Math.max(e.target.value, this.width-(-1));
-    const value = e.target.value;
-    const arr = this.minmax.sort((a:number, b:number) => a - b);
-    const idx = value > 0 ? Math.ceil(arr.length/100*value)-1 : 0;
-    this.max = arr[idx];
+    const value = Math.max(e.target.value, this.width-(-1));
+    const idx = value > 0 ? Math.ceil(this.minmax.length/100*value)-1 : 0;
+    this.max = this.minmax[idx];
     const maxwidth = value;
     this.maxwidth = maxwidth;
   }
