@@ -1,0 +1,1 @@
+{"version":3,"file":"slider-component.d.ts","sourceRoot":"","sources":["src/slider-component.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,UAAU,EAAuB,MAAM,aAAa,CAAC;AAE9D,qBACa,eAAgB,SAAQ,UAAU;IAG3C,MAAM;CAgBT;AAED,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,qBAAqB;QAC7B,kBAAkB,EAAE,eAAe,CAAC;KACrC;CACF"}
