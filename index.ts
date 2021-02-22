@@ -1,1 +1,1 @@
-import './src/covid-slider.ts';
+import './covid-slider.ts';
